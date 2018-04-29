@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading;
@@ -30,7 +31,7 @@ namespace SpotifyPlaylistSorter
         [STAThread]
         static void Main(string[] args)
         {
-            Globals.Token = "xxxxxxxxxxxx";
+            Globals.Token = "xxxxxxxxxxxxxx";
             Globals.PlaylistId = "1t2JjnEA5xRShiAjL7Ogz8";
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -44,25 +45,16 @@ namespace SpotifyPlaylistSorter
             kbh.UnHookKeyboard();
         }
 
-        static async Task<bool> Asd()
-        {
-            Console.WriteLine(await httpClient.GetAsync("http://google.com"));
-            return true;
-        }
-
         static async void kbh_OnKeyPressed(object sender, Keys e)
         {
-            if (e == Keys.LControlKey)
-            {
-                await Asd();
-            }
-            else if (e == Keys.F1)
+            if (e == Keys.F1)
             {
                 Console.WriteLine("F1 - chill");
                 await GetCurrentInfo();
                 await AddToPlaylist("chill");
                 await NextSong();
                 await SeekInSong();
+                await DeleteSong();
             }
             else if (e == Keys.F2)
             {
@@ -71,6 +63,7 @@ namespace SpotifyPlaylistSorter
                 await AddToPlaylist("xanny");
                 await NextSong();
                 await SeekInSong();
+                await DeleteSong();
             }
             else if (e == Keys.F3)
             {
@@ -79,46 +72,34 @@ namespace SpotifyPlaylistSorter
                 await AddToPlaylist("yah");
                 await NextSong();
                 await SeekInSong();
+                await DeleteSong();
             }
-            else if (e == Keys.F1)
+            else if (e == Keys.F4)
             {
                 Console.WriteLine("F4 - oldie");
                 await GetCurrentInfo();
                 await AddToPlaylist("oldie");
                 await NextSong();
                 await SeekInSong();
+                await DeleteSong();
             }
-            else if (e == Keys.F1)
+            else if (e == Keys.F5)
             {
                 Console.WriteLine("F5 - other");
                 await GetCurrentInfo();
                 await AddToPlaylist("other");
                 await NextSong();
                 await SeekInSong();
+                await DeleteSong();
             }
             else if (e == Keys.F12)
             {
                 Console.WriteLine("F12 - next");
                 await NextSong();
                 await SeekInSong();
+                await DeleteSong();
             }
         }
-
-        //static void Main(string[] args)
-        //{
-        //    Globals.Token = "Bearer BQBJQyCpopHc8DUW9PNMbnDzheQcQykGmx2ebyYfsDL--pFX3uGWnpKudlgkryZkYWz0hjBkOiIvb1kQ7y7dHByRq3ZGBKyhpz0JsiHWmgOHuU2C3gy83K7FCxagbWTzv8WTNsF66NIBUYq1TLO_W0HCjQ7WLRFv8WNzSwUGmxLWI7xIFOJpCPtFQsCGD5KOTcCfogItqv3_0sraTq-9oWhKST78C7cHcEk9mRoel_V3T3QSw3CaMU5nilQZ8hN4eGMdZCuOYOERQw";
-        //    while (true)
-        //    {
-        //        GetCurrentInfo().GetAwaiter().GetResult();
-        //        //GetPlaylistInfo().GetAwaiter().GetResult();
-        //        Console.WriteLine("Playlist name:");
-        //        string addTo = Console.ReadLine();
-        //        AddToPlaylist(addTo).GetAwaiter().GetResult();
-        //        NextSong().GetAwaiter().GetResult();
-        //        SeekInSong().GetAwaiter().GetResult();
-        //        // Delete previous song from playlist
-        //    }
-        //}
 
         private static async Task<bool> AddToPlaylist(string playlist)
         {
@@ -176,23 +157,21 @@ namespace SpotifyPlaylistSorter
             return true;
         }
 
-        //private static async Task<bool> DeletePreviousSong()
-        //{
-        //    var baseAddress = new Uri("https://api.adtraction.com/");
+        private static async Task<bool> DeleteSong()
+        {
+            string json = "{\"tracks\":[{\"uri\":\"spotify:track:" + Globals.CurrentSongId + "\",\"positions\":[0]}]}";
 
-        //    using (var httpClient = new HttpClient { BaseAddress = baseAddress })
-        //    {
-        //        httpClient.DefaultRequestHeaders.TryAddWithoutValidation("accept", "application/json");
+            HttpRequestMessage request = new HttpRequestMessage();
+            request.Content = new StringContent(json, Encoding.UTF8, "application/json");
+            request.Method = HttpMethod.Delete;
+            request.RequestUri = new Uri("https://api.spotify.com/v1/users/" + Globals.User + "/playlists/" + Globals.PlaylistId + "/tracks");
+            request.Headers.Add("accept", "application/json");
+            request.Headers.Add("Authorization", Globals.Token);
 
-        //        httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", Globals.Token);
-                
-        //        using (var response = await httpClient.DeleteAsync("https://api.spotify.com/v1/users/" + Globals.User + "/playlists/" + Globals.PlaylistId + "/tracks", ""))
-        //        {
-                    
-        //        }
-        //    }
-        //    return true;
-        //}
+            await httpClient.SendAsync(request);
+
+            return true;
+        }
 
         private static async Task<bool> SeekInSong()
         {

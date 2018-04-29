@@ -33,7 +33,6 @@ namespace SpotifyPlaylistSorter
         public delegate IntPtr LowLevelKeyboardProc(int nCode, IntPtr wParam, IntPtr lParam);
 
         public event EventHandler<Keys> OnKeyPressed;
-        public event EventHandler<Keys> OnKeyUnpressed;
 
         private LowLevelKeyboardProc _proc;
         private IntPtr _hookID = IntPtr.Zero;

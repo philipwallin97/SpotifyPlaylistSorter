@@ -30,7 +30,7 @@ namespace SpotifyPlaylistSorter
         [STAThread]
         static void Main(string[] args)
         {
-            Globals.Token = "Bearer BQA7yA3Hsaq-QebbJ2MP_WY0vRUVrUcMYq-fYzVPRYv7dl-eshtrfm3RZTUmalzpg4kobHr8HqL5mtaiOR4n2VURJOlQN5_PxR5XBMf3dpPzmgoIiuQr3Szs9CbEBvGhQB4LzrHgTK2IL4GZrCvSPpJnmlALPo0sMtA2EDQIDr0Pkvut_L-Wm-emWMryxUAYcjXV59iZCUWj1wUM3kVOzSn6tebXCt5H1SlwTtjpTwTGCZO8CWXyb6bS8bGXLX1abLDjiaRO536dYw";
+            Globals.Token = "xxxxxxxxxxxx";
             Globals.PlaylistId = "1t2JjnEA5xRShiAjL7Ogz8";
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

@@ -6,3 +6,12 @@ C:\Users\Philip\Documents\Visual Studio 2017\Projects\SpotifyPlaylistSorter\Spot
 C:\Users\Philip\Documents\Visual Studio 2017\Projects\SpotifyPlaylistSorter\SpotifyPlaylistSorter\obj\Debug\SpotifyPlaylistSorter.pdb
 C:\Users\Philip\Documents\Visual Studio 2017\Projects\SpotifyPlaylistSorter\SpotifyPlaylistSorter\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Philip\Documents\Visual Studio 2017\Projects\SpotifyPlaylistSorter\SpotifyPlaylistSorter\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Philip\Source\Repos\SpotifyPlaylistSorter\SpotifyPlaylistSorter\bin\Debug\SpotifyPlaylistSorter.exe.config
+C:\Users\Philip\Source\Repos\SpotifyPlaylistSorter\SpotifyPlaylistSorter\bin\Debug\SpotifyPlaylistSorter.exe
+C:\Users\Philip\Source\Repos\SpotifyPlaylistSorter\SpotifyPlaylistSorter\bin\Debug\SpotifyPlaylistSorter.pdb
+C:\Users\Philip\Source\Repos\SpotifyPlaylistSorter\SpotifyPlaylistSorter\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Philip\Source\Repos\SpotifyPlaylistSorter\SpotifyPlaylistSorter\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Philip\Source\Repos\SpotifyPlaylistSorter\SpotifyPlaylistSorter\obj\Debug\SpotifyPlaylistSorter.csprojResolveAssemblyReference.cache
+C:\Users\Philip\Source\Repos\SpotifyPlaylistSorter\SpotifyPlaylistSorter\obj\Debug\SpotifyPlaylistSorter.csproj.CoreCompileInputs.cache
+C:\Users\Philip\Source\Repos\SpotifyPlaylistSorter\SpotifyPlaylistSorter\obj\Debug\SpotifyPlaylistSorter.exe
+C:\Users\Philip\Source\Repos\SpotifyPlaylistSorter\SpotifyPlaylistSorter\obj\Debug\SpotifyPlaylistSorter.pdb
